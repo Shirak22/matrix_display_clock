@@ -1,0 +1,11 @@
+.Pixel {
+    border-radius:50%; 
+    position: absolute;
+    margin: 0;
+    padding: 0;
+
+}
+
+.Pixel:hover{
+    background: rgb(159, 15, 15) !important;
+}
