@@ -1,8 +1,8 @@
 import {useEffect, useState } from 'react';
 import MatrixSegment from './MatrixSegment'
 
-function Display({data}) {
-    let metrixSize = 20; 
+function Display() {
+    let metrixSize = 10; 
     const [date, setDate] = useState(new Date());
     const [seconds,updateSeconds] = useState(split2DigitNumbers(date.getSeconds())); 
     const [minutes,updateMinutes] = useState(split2DigitNumbers(date.getHours())); 
