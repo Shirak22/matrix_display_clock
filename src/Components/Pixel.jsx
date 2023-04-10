@@ -4,15 +4,15 @@ import  "../css/Pixel.css"
 
 
 function Pixel({data}) {
-    const {x,y,status,size,id} = data; 
+    const {x,y,status,size,id,color} = data; 
 
    let style = {
-        width: size + 'px',
-        height: size + 'px',
-        top: y * size + 'px',
-        left: x * size + 'px',
-        background: status == 1 ? '#f50' : '#333',
-        boxShadow: `0 0 3px ${status == 1 ? '#f50' : '#333'}`
+        width: size + 'em',
+        height: size + 'em',
+        top: y * size + 'em',
+        left: x * size + 'em',
+        background: status == 1 ? color : '#023',
+        boxShadow: `0 0 .2em ${status == 1 ? color : '#023'}`
    }
 
     return ( 

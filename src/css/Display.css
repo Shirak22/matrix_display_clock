@@ -1,0 +1,21 @@
+.Display{
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 1rem;
+}
+
+@media only screen and (min-width:600px) and ( max-width:1000px) {
+    .Display{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .Display{
+        font-size: 6px;
+    }
+}

@@ -2,138 +2,28 @@ import { useState } from "react";
 import Pixel from "./Pixel";
 import { useEffect } from "react";
 import  "../css/MatrixSegment.css"
+import {DIGITS} from './Digits' 
 
-
-let DIGITS = {
-    digit0:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,1,1,
-        1,0,1,0,1,
-        1,1,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ],
-
-    digit1:[
-       0,0,1,0,0,
-       0,1,1,0,0,
-       0,0,1,0,0,
-       0,0,1,0,0,
-       0,0,1,0,0,
-       0,0,1,0,0,
-       1,1,1,1,1
-    ],
-    digit2:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,1,
-        0,0,0,1,0,
-        0,0,1,0,0,
-        0,1,0,0,0,
-        1,1,1,1,1
-
-    ],
-    digit3:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        0,0,0,0,1,
-        0,0,1,1,0,
-        0,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ],
-    digit4:[
-        0,0,0,1,0,
-        0,0,1,1,0,
-        0,1,0,1,0,
-        1,0,0,1,0,
-        1,1,1,1,1,
-        0,0,0,1,0,
-        0,0,0,1,0
-
-    ],
-    digit5:[
-        1,1,1,1,1,
-        1,0,0,0,0,
-        1,1,1,1,0,
-        0,0,0,0,1,
-        0,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ],
-    digit6:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,0,
-        1,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ],
-    digit7:[
-        1,1,1,1,1,
-        0,0,0,0,1,
-        0,0,0,1,0,
-        0,0,1,0,0,
-        0,0,1,0,0,
-        0,0,1,0,0,
-        0,0,1,0,0
-
-    ], digit8:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ], digit9:[
-        0,1,1,1,0,
-        1,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,1,
-        0,0,0,0,1,
-        1,0,0,0,1,
-        0,1,1,1,0
-
-    ], digitColon:[
-        0,0,0,0,0,
-        0,0,0,0,0,
-        0,0,0,0,0,
-        0,0,0,0,0,
-        0,0,1,0,0,
-        0,0,0,0,0,
-        0,0,1,0,0,
-       
-
-    ]
-
-}
 
 
 
 function MatrixSegment(props) {
-    const {inputData,pixelSize} = props; 
+    const {inputData} = props; 
     const[pixelsArray,setPixelsArray] = useState([]); 
 
     let segmentPropertis = {
-        pixelSize : !pixelSize ? 10 : pixelSize,
+        pixelSize :1,
+        pixelOnColor: '#f50',
         columns: 5,
         rows:7
     }
 
     let style = {
-        width: segmentPropertis.pixelSize * segmentPropertis.columns,
-        height: segmentPropertis.pixelSize * segmentPropertis.rows
+        width: segmentPropertis.pixelSize * segmentPropertis.columns + 'em',
+        height: segmentPropertis.pixelSize * segmentPropertis.rows + 'em'
     }
 
-    function generatePixels(rows,columns,pixelSize){
+    function generatePixels(rows,columns,pixelSize,pixelOnColor){
         let pixelsArray = []; 
         let IdCounter = 0 ;
         let InputDigit = charToMatrixDigits(DIGITS,inputData); 
@@ -146,7 +36,8 @@ function MatrixSegment(props) {
                     x:column,
                     y:row,
                     status:InputDigit[IdCounter],
-                    id:IdCounter
+                    id:IdCounter,
+                    color: pixelOnColor
                 }
                 pixelsArray.push(pixel);
                 IdCounter++; 
@@ -187,7 +78,7 @@ function MatrixSegment(props) {
     
 
     function updateValue(){
-        setPixelsArray(generatePixels(segmentPropertis.rows,segmentPropertis.columns,segmentPropertis.pixelSize))
+        setPixelsArray(generatePixels(segmentPropertis.rows,segmentPropertis.columns,segmentPropertis.pixelSize,segmentPropertis.pixelOnColor))
     }
 
     useEffect(()=> {
