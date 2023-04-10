@@ -1,5 +1,5 @@
 
 <h1 align="center">Matrix Digital Display Clock </h1>
 <p align="center">
-  <img width="460" height="300" src="https://media3.giphy.com/media/oHxX4LQFqdDOcoJ9g5/giphy.gif?cid=ecf05e472esdcnen7dadhj7ux4g9n4lvz28e1q4pyga79fph&rid=giphy.gif&ct=g">
+  <img width="460" height="300" src="https://github.com/Shirak22/matrix_display_clock/blob/main/Matrix_Display.png?raw=true">
 </p>
