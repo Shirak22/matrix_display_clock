@@ -28,3 +28,31 @@
 .read-the-docs {
   color: #888;
 }
+
+.footer_nav{
+  width: 100%;
+  
+}
+
+.footer_nav ul{
+  list-style: none;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+.footer_nav ul li {
+  margin:0 1rem;  
+  font-size: .8rem;
+  margin-top: .2rem;
+}
+.footer_nav ul li a  {
+  font-style: italic;
+  text-decoration: none;
+  color: rgba(255, 255, 255, .2);
+}
+.footer_nav ul li a:hover{
+  color: rgba(255, 255, 255, .7);
+
+}

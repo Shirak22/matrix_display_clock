@@ -1,3 +1,4 @@
+//Digits array that represents the pixels, 1 the pixel is on and the 0 is off
 export  const DIGITS = {
     digit0:[
         0,1,1,1,0,

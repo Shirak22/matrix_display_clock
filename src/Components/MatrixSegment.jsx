@@ -11,18 +11,21 @@ function MatrixSegment(props) {
     const {inputData} = props; 
     const[pixelsArray,setPixelsArray] = useState([]); 
 
+
     let segmentPropertis = {
         pixelSize :1,
         pixelOnColor: '#f50',
-        columns: 5,
+        columns: 5, 
         rows:7
     }
-
+   // setting up width and height of the segment based on  {PixelSize, columns, rows  }
     let style = {
         width: segmentPropertis.pixelSize * segmentPropertis.columns + 'em',
         height: segmentPropertis.pixelSize * segmentPropertis.rows + 'em'
     }
 
+
+    // Generating array of Pixel objects that every single obj has dynamic value of {On Off} status depends on inputData
     function generatePixels(rows,columns,pixelSize,pixelOnColor){
         let pixelsArray = []; 
         let IdCounter = 0 ;
@@ -47,6 +50,7 @@ function MatrixSegment(props) {
         return pixelsArray; 
     }
 
+    // Converting string digits to display array from Digits.js file 
     function charToMatrixDigits(digits,input){
         switch(input){
             case 0 : 
@@ -76,7 +80,7 @@ function MatrixSegment(props) {
         }
     }
     
-
+    //updateing the value of pixels status, triggers every time InputData changes 
     function updateValue(){
         setPixelsArray(generatePixels(segmentPropertis.rows,segmentPropertis.columns,segmentPropertis.pixelSize,segmentPropertis.pixelOnColor))
     }

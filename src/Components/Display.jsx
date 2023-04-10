@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import MatrixSegment from './MatrixSegment'
 import "../css/Display.css";
 
+
+//Clock display 
 function Display() {
     const [date, setDate] = useState(new Date());
     const [seconds, updateSeconds] = useState(split2DigitNumbers(date.getSeconds()));
     const [minutes, updateMinutes] = useState(split2DigitNumbers(date.getHours()));
     const [hours, updateHours] = useState(split2DigitNumbers(date.getMinutes()));
 
+
+    //refreshClock function triggers every one second to update time every single second 
     function refreshClock() {
         let newDate = new Date();
         setDate(newDate);
@@ -16,7 +20,8 @@ function Display() {
         updateMinutes(split2DigitNumbers(newDate.getMinutes()));
     }
 
-    function split2DigitNumbers(num) {
+        // converting numbers to array of string digits, >> 9 => ['0','9']    >>  11 => ['1','1']
+    function  split2DigitNumbers(num) {
 
         if (num > 9) {
             return num.toString().split('');
@@ -26,6 +31,8 @@ function Display() {
     }
 
     useEffect(() => {
+
+        //trigger  1000ms interval 
         const timerId = setInterval(refreshClock, 1000);
         return function cleanup() {
             clearInterval(timerId);
@@ -35,7 +42,7 @@ function Display() {
     return (
 
         <div className="Display">
-
+            
             <MatrixSegment inputData={parseInt(hours[0])}  />
             <MatrixSegment inputData={parseInt(hours[1])}  />
             <MatrixSegment inputData={':'}                  />
