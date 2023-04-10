@@ -13,7 +13,7 @@ function App() {
       <nav className="footer_nav">
        
                 <ul>
-                    <li> <a>By Shirak Soghomonian © 2023</a></li>
+                    <li> <a>Matrix Display Digital Clock © 2023 By Shirak Soghomonian </a></li>
                     <li><a target="_blank" href="https://github.com/Shirak22/matrix_display_clock">Github</a></li>
                     <li><a target="_blank" href="https://codepen.io/shirakserop">CodePen</a></li>
                 </ul>
